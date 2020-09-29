@@ -1,0 +1,1 @@
+- `start /WAIT /B myfile.exe` - starts exe and stays in same console
