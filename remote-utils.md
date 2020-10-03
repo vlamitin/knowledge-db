@@ -192,3 +192,9 @@ or even
 
 ## nmap
 - `nmap 192.168.1.0/24 -sP` - show hosts in local net
+
+## nslookup
+- `nslookup ya.ru 8.8.8.8` - second argument is the nameserver to use
+- `nslookup ya.ru 192.168.1.1` - you can use your gateway's nameserver
+- `nslookup ya.ru` - if omit ns server arg - the default will be used (first from resolv.conf)
+
