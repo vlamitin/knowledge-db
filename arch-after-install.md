@@ -358,6 +358,7 @@ nameserver 8.8.4.4
 ```
 
 ## openresolv, resolvconf.conf
+- `man resolvconf 8` - 8 is needed! man resolvconf opens man for resolvectl!
 - openresolv package gives the resolvconf binary
 - resolvconf is configured via /etc/resolvconf.conf
 ```
