@@ -4,6 +4,8 @@
 - `echo "134.1444" | cut -d '.' -f2` - like in js string.split('.')[1]
 
 ## sed
+- `seq 3 | sed '2i\hello\'` - prints 1\hello\2\3
+- `seq 3 | sed '4i\hello\'` - prints 1\2\3
 - `ls | sed -n '1,2p'` - prints 1st and 2nd line
 - `echo "old" | sed s/old/new/` - prints new
 - `echo "/home/user" | sed s#/home#/sweethome#` - prints "/sweethome/user" (any symbol can be delimiter)
