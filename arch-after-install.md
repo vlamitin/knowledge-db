@@ -341,8 +341,34 @@ dns=none
 ```
 2. 
 ```
-
+# /etc/NetworkManager/conf.d/no-systemd-resolved.conf
+[main]
+systemd-resolved=false
 ```
+3. `sudo systemctl disable systemd-resolved.service`
+4. `sudo rm /etc/resolv.conf` - it was a symlink to some systemd file
+5. `sudo touch /etc/resolv.conf`
+6. `sudo apt purge openresolv resolvconf` - removes openresonv and resolvconf
+7. (optional) - fill /etc/resolv.conf with:
+```
+# /etc/resolv.conf
+nameserver 1.1.1.1
+nameserver 8.8.8.8
+nameserver 8.8.4.4
+```
+
+## openresolv, resolvconf.conf
+- openresolv package gives the resolvconf binary
+- resolvconf is configured via /etc/resolvconf.conf
+```
+# /etc/resolvconf.conf
+resolv_conf=/etc/resolv.conf
+name_servers="1.1.1.1 8.8.8.8"
+resolv_conf_options="timeout:1"
+```
+- `resolvconf -u` - force updates /etc/resolv.conf according to current config and state
+- `echo -n "nameserver 1.1.1.1" | resolvconf -x -a tun0` - adds exclusive nameserver for a tun ip interface
+- `resolvconf -d` - resets previously added nameservers
 
 ## brigtness
 - `xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1` - prints your display (eDP-1 e.g)
