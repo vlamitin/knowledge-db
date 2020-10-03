@@ -329,6 +329,21 @@ EOF
 - `nmcli --show-secrets connection show "<SSID>"` - show connection info with plain password (802-11-wireless-security.psk:)
 - see man nmcli, examples section for more
 
+## NetworkManager dns
+### Changing dns to unmanaged
+Default NetworkManager dns manage way is systemd-resolve, which has significant cons [1](https://cdnnow.ru/blog/dnslocal/) [2](https://moss.sh/name-resolution-issue-systemd-resolved/)
+Best way is to change in to unmanaged [see](https://wiki.archlinux.org/index.php/NetworkManager#Unmanaged_/etc/resolv.conf)
+1.
+```
+# /etc/NetworkManager/conf.d/dns.conf
+[main]
+dns=none
+```
+2. 
+```
+
+```
+
 ## brigtness
 - `xrandr -q | grep ' connected' | head -n 1 | cut -d ' ' -f1` - prints your display (eDP-1 e.g)
 - `xrandr --output eDP-1 --brightness 0.9`
