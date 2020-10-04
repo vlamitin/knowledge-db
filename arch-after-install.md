@@ -321,7 +321,7 @@ EOF
 ## nmtui, nmcli (tools to manage NetworkManager)
 - `nmcli connection show`
 - `nmcli connection up <SSID>`
-- `nmcli device wifi connect <SSID>` - another way to connect to wifi
+- `nmcli device wifi connect <SSID> password <password>` - another way to connect to wifi
 - `nmcli device wifi list`
 - `nmcli device wifi hotspot` - TODO проверить
 - `nmcli wifi rescan`
