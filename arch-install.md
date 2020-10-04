@@ -15,8 +15,12 @@
 - [Полный гайд](https://wiki.archlinux.org/index.php/Dm-crypt/Drive_preparation#Secure_erasure_of_the_hard_disk_drive) всё с диска (открыть для контроля, вдруг там апдейт)
 - `cryptsetup open --type plain -d /dev/urandom /dev/sdX to_be_wiped` - создаст ВРЕМЕННЫЙ криптконейтер для удаления в корневом partition sdX, смапленный на сам sdX
 - `lsblk` - смотрим, должен создасться 'to_be_wiped' как ребенок sdX
-- `dd if=/dev/zero of=/dev/mapper/to_be_wiped status=progress` - заполняем весь диск нулями
+- `dd if=/dev/zero of=/dev/mapper/to_be_wiped status=progress bs=2038` - заполняем весь диск нулями
 - `cryptsetup close to_be_wiped` - закрываем криптконтейнер
+
+### устанавливаем точное время
+`timedatectl set-ntp true`
+
 ### Готовим партишны
 - lsblk или fdisk -l, смотрим на какой диск (sda / sdb / ...) мы хотим установить arch.
 - gdisk /dev/sdX, далее следуем командам
@@ -32,7 +36,7 @@
 ## Шифруем диски
 ### Шифруем root
 - [Полный гайд](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#LUKS_on_a_partition)
-- `cryptsetup -y -v luksFormat --type luks2 /dev/sdX3` - создаём защищенный раздел и устанавливаем пароль на partition, куда будем маунтить /
+- `cryptsetup -y -v luksFormat /dev/sdX3` - создаём защищенный раздел и устанавливаем пароль на partition, куда будем маунтить /
 - `cryptsetup open /dev/sdX3 cryptroot` - открываем созданный раздел и маппим его на /dev/mapper, после этого на partition обращаемся не напрямую (/dev/sdX3), а через маппер (/dev/mapper/cryptroot)
 - `mkfs.ext4 /dev/mapper/cryptroot` - форматируем root в ext4
 - `mount /dev/mapper/cryptroot /mnt` - монтируем его в /mnt
@@ -46,26 +50,26 @@
 
 ### Шифруем home
 - [Полный гайд](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_a_non-root_file_system#Partition)
-- `cryptsetup -y -v luksFormat --type luks2 /dev/sdX4` - создаём защищенный раздел и устанавливаем пароль на partition, куда будем маунтить /home
+- `cryptsetup -y -v luksFormat /dev/sdX4` - создаём защищенный раздел и устанавливаем пароль на partition, куда будем маунтить /home
 - `cryptsetup open /dev/sdX4 crypthome` - открываем созданный раздел и маппим его на /dev/mapper
 - `mkfs.ext4 /dev/mapper/crypthome` - форматируем home в ext4
- `mount /dev/mapper/crypthome /mnt/home` - монтируем его в /mnt
+- `mkdir /mnt/home && mount /dev/mapper/crypthome /mnt/home` - монтируем его в /mnt
 
 ### Маунтим руками boot
-- `mkfs.vfat /dev/sdX1`
+- `mkfs.fat -F32 /dev/sdX1`
 - `mkdir /mnt/boot`
--`mount /dev/sdX1 /mnt/boot`
+- `mount /dev/sdX1 /mnt/boot`
 #### Делаем swap и включаем его
 - `mkswap /dev/sdX2`
 - `swapon /dev/sdX2`
-### Генерим fstab на основании /mnt
-- `genfstab -U -p /mnt >> /mnt/etc/fstab`
 ### Устанавливаем arch
-- `pacstrap /mnt base base-devel vim` - установит нужные пакеты из packages base, base-devel, а также vim
-10.
+- `pacstrap /mnt base linux linux-firmware base-devel vim` - установит нужные пакеты из packages base, base-devel, а также vim
+### Генерим fstab на основании /mnt
+- `genfstab -U /mnt >> /mnt/etc/fstab`
+### чрут
 - `arch chroot /mnt /bin/bash` - чрутимся из загрузочной флешки в arch, установленный в /mnt (выйти назад можно через ctrl + d)
 ### Добавляем в ядро поддержку шифрования
-- в файл /etc/mkinticpio.conf добавляем encrypt в HOOKS [возможно, нужны и другие хуки](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio)
+- в файл /etc/mkinticpio.conf добавляем encrypt в HOOKS [возможно, нужны и другие хуки](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_mkinitcpio) - приводим к виду HOOKS=(base udev autodetect keyboard keymap consolefont modconf block encrypt filesystems fsck)
 ### Устанавливаем и настраиваем boot manager
 - `bootctl install` - установит boot manager (говорят он лучше глючного grub)
 - после можно проверить ls /boot, что там initramfs и vmlinuz
@@ -75,45 +79,44 @@ default  arch
 timeout  4
 ```
 
-- и редактируем esp/loader/entries/arch.conf, туда руками пишем
+- и редактируем /boot/loader/entries/arch.conf, туда руками пишем
 ```
 title   Arch
 linux   /vmlinuz-linux
 initrd  /initramfs-linux.img
 options rw cryptdevice=UUID={UUID`*`}:cryptroot root=/dev/mapper/cryptroot
+# * - сюда вставляем UUID, полученный через :r!blkid нашего /dev/sdX3 (который root) см https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_the_boot_loader
 ```
-
 - `mkinitcpio -p linux` - пересобираем ядро
-- `*` сюда вставляем UUID, полученный через :r!blkid нашего /dev/sdX3 (который root) [см](https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_the_boot_loader)
 
 
 ## locale and localtime and networkmanager
-- edit /etc/locale.gen, раскомменчиваем en-US UTF-8
+- edit /etc/locale.gen, раскомменчиваем en-US UTF-8 и ru-RU UTF-8
 - `locale-gen`
+- set LANG in locale.conf
+```
+/etc/locale.conf
+LANG=en_US.UTF-8
+```
 
 - `ln -sf /usr/share/zoneinfo/Europe/Moscow /etc/localtime`
-- `hwclock --systohc --utc`
+- `hwclock --systohc`
 
 - `echo arch-pc >> /etc/hostname`
-- `echo "127.0.1.1 localhost.localdomain arch-pc" >> /etc/hosts
+- `echo "127.0.1.1 localhost.localdomain arch-pc" >> /etc/hosts`
+- `echo "127.0.1.1 localhost" >> /etc/hosts`
 
 - `pacman -S networkmanager`
 - `systemctl enable NetworkManager`
 
 - `passwd` - задаст пароль для root пользователя
-## fstab и crypttab
+## Добавляем home в crypttab
 - edit /etc/crypttab
 ```
-crypthome UUID={home uuid} none luks
+crypthome UUID={*} none luks
+# * :r!blkid /dev/sdX (home)
 ```
-- или можно вместо none указать none указать путь к паролю, например /etc/mypassword (root же зашифрован, так что секюрно, хотя все из wheel будут видет пароль, что не круто)
-- [Добавляем home в crypttab](https://wiki.archlinux.org/index.php/Dm-crypt/System_configuration#crypttab)
-```
-(вроде работает без этого, genfstab нормально генерит. TODO Проверить!)
-// Редактируем fstab, заменяя реальные имена partitions на /dev/mapper
-// /dev/mapper/sda3_crypt /               ext4    errors=remount-ro 0       1
-// /dev/mapper/sda2_crypt none            swap    sw              0       0
-```
+
 ## exit to usb, umount, shutdown
 - umount -R /mnt
 - вытаскиваем флешку и включаем
