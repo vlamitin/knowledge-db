@@ -330,6 +330,9 @@ EOF
 - see man nmcli, examples section for more
 
 ## NetworkManager dns
+## Settings
+- `vim /etc/NetworkManager/system-connections/<connection>.nmconnection` - тут можно посмотреть пароли к wifi, например
+
 ### Changing dns to unmanaged
 Default NetworkManager dns manage way is systemd-resolve, which has significant cons [1](https://cdnnow.ru/blog/dnslocal/) [2](https://moss.sh/name-resolution-issue-systemd-resolved/)
 Best way is to change in to unmanaged [see](https://wiki.archlinux.org/index.php/NetworkManager#Unmanaged_/etc/resolv.conf)
