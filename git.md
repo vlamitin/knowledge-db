@@ -19,6 +19,13 @@ However, you can easily rollback to any commit in already forked repo:
 git remote -v
 git remote set-url origin https://github.com/USERNAME/REPOSITORY.git
 ```
+3. Change remote, that was cloned using https to ssh
+```
+git remote -v
+git remote set-url origin <clone ssh link>
+git remote -v
+# now every push or fetch will be userd via ssh
+```
 
 ## Tools
 1. Meld - out of the box nice gui for watching diffs, merge and so on
