@@ -171,3 +171,6 @@ tail: []
 - `fileInfo := file.Stat()`
 - `fileInfos, err := ioutil.ReadDir('.')`
 - `err := ioutil.WriteFile('./file.txt', []byte("hello world"), os.O_WRONLY|os.O_CREATE|os.O_TRUNC)`
+
+## Troubleshooting
+- `git config --global url."ssh://git@github.com/".insteadOf "https://github.com/"` - https://tip.golang.org/doc/faq#git_https - if "unknown revision ..." errors during `go mod download`
