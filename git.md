@@ -56,6 +56,16 @@ git remote -v
 - `echo -ne 'username=username\nprotocol=https\nhost=github.com\n' | git credential-cache get` - prints saved creds (when `git config --global credential.helper "cache --timeout=3600"` is used)
 - `git credential-cache exit` - forgets all saved passwords before to expires (new passwords will be saved)
 
+## rebase
+- `git rebase -i HEAD~4` - start rebasing last 4 commits https://thoughtbot.com/blog/git-interactive-rebase-squash-amend-rewriting-history
+### reword
+- in first vim text see list of commits; change `pick` to `r` to select commits
+- in second vim text see list of messages to commits - change them
+### squash
+- in first vim text see list of commits; change `pick` to `s` to select commits, which will be melded with the previous one
+- in second vim text see list of messages to commits - change commits messages
+### force push
+- `git push --force origin feature` - ! rewrites origin history!
 
 ## mics
 - you can use token as password when git fetch
