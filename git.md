@@ -65,7 +65,16 @@ git remote -v
 - in first vim text see list of commits; change `pick` to `s` to select commits, which will be melded with the previous one
 - in second vim text see list of messages to commits - change commits messages
 ### force push
-- `git push --force origin feature` - ! rewrites origin history!
+- `git push --force origin feature_branch` - ! rewrites origin history!
+### rebase on top of master
+- let's say you made a PR to master with only commit (all commits are squashed in one)
+- master was updated (another PR was merged)
+- you want to merge master to your branch and fix conflicts; but you want all your changed to still be in a single commit
+- `git fetch`
+- `git rebase origin/master`
+- fix conflicts
+- `git commit --amend -no-edit`
+- `git push --force origin feature_branch`
 
 ## mics
 - you can use token as password when git fetch
