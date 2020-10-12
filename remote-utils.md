@@ -181,8 +181,8 @@ or even
 - you can also proxy one local port on another local port `ssh -L 0.0.0.0:9223:localhost:9222 localhost -N`  - now when go on <remote-machine-ip>:9223 you'll be proxied to <remote-machine-ip>:9222
  
 ## curl examples
-- `curl -o file.txt http://server.com/some-file.txt` - download file with custom name
-- `curl -O http://server.com/some-file.txt` - download file with same name
+- `curl -L -o file.txt http://server.com/some-file.txt` - download file with custom name. Warn! always pass -L when download files! (means to follow redirects)
+- `curl -L -O http://server.com/some-file.txt` - download file with same name
 - `curl -X POST -H "Authorization: Bearer bWFuYWdlcjpwYXNzd29yZDMyNDAxMg=" -H "Content-Type: application/json" -d '{"field1":"Test1","field2":"adada"}' ip:port`
 - `curl -u 'your_username:your_password' -d @/tmp/request_data.json http://ip:port`
 - `curl "https://music.mp3-download.best/UFUHW:ZjzZZ" -o song.mp3`
