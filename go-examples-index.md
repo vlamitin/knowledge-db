@@ -1,5 +1,17 @@
 # Examples and tl;dr-s with links to expanded answers
 
+## go installation
+- `cd ~/sdk && curl -LO https://golang.org/dl/go1.15.2.linux-amd64.tar.gz && tar -C go1.15.2 -xzf go1.15.2.linux-amd64.tar.gz` - see full list of versions here; we download to ~/sdk/go1.15.2, because `go get golang.org/dl/go1.15.2 && go1.15.2 download` will install new version here (but it required go installed)
+- `ln -s ~/sdk/go1.15.2/bin/gofmt ~/bin/gofmt; ln -s ~/sdk/go1.15.2/bin/go ~/bin/go` - symlink
+- adding env to .profile or .bashrc: 
+```
+# go tools
+export PATH=$PATH:$HOME/go/bin
+export GOPATH=$HOME/go
+export GOROOT=$HOME/sdk/go1.15.2
+```
+- add new versions like so: `go get golang.org/dl/go1.14.3 && go1.14.3 download` - https://golang.org/doc/manage-install#installing-multiple
+
 ## Best resources
 - [https://www.programming-idioms.org/cheatsheet/Go](https://www.programming-idioms.org/cheatsheet/Go) - common code pieces on one page
 - [https://learnxinyminutes.com/docs/go/](https://learnxinyminutes.com/docs/go/) - the very basics
