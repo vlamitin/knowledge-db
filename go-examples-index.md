@@ -45,6 +45,7 @@ fmt.Printf("this shall not NPE!!, but give 0 instead - %v\n", mtInstance.mt.name
 ## CLI
 - `go mod download` - like npm install
 - `go mod init github.com/username/new_project` - inits modules in current dir
+- `go mod vendor` - installs deps of packege go project-dir/vendor (you'll need to gitignore it)
 - `go get github.com/go-swagger/go-swagger` - install package
 - `go get -u github.com/go-swagger/go-swagger` - upgrade package
 - `go run cmd/app/main.go` - compile and run
