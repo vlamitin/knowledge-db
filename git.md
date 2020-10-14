@@ -62,18 +62,25 @@ git remote -v
 - in first vim text see list of commits; change `pick` to `r` to select commits
 - in second vim text see list of messages to commits - change them
 ### squash
-- in first vim text see list of commits; change `pick` to `s` to select commits, which will be melded with the previous one
+- in first vim text see list of commits; change `pick` to `s` to select commits, which will be melded with the previous one (e.g. `pick` on first commit, `s` on every other)
 - in second vim text see list of messages to commits - change commits messages
 ### force push
 - `git push --force origin feature_branch` - ! rewrites origin history!
-### rebase on top of master
+
+## rebase on top of master
 - let's say you made a PR to master with only commit (all commits are squashed in one)
 - master was updated (another PR was merged)
 - you want to merge master to your branch and fix conflicts; but you want all your changed to still be in a single commit
 - `git fetch`
 - `git rebase origin/master`
-- fix conflicts
-- `git commit --amend -no-edit`
+- all your commits will be then applied to origin/master one by one
+- let's say there are conflicts in 2 commits
+- fix conflicts of first commit
+- `git add .` (or git add conflicting files)
+- `git rebase --continue`
+- fix conflicts of second commit
+- `git add .` (or git add conflicting files)
+- `git rebase --continue`
 - `git push --force origin feature_branch`
 
 ## mics
