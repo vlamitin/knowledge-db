@@ -360,6 +360,24 @@ nameserver 8.8.8.8
 nameserver 8.8.4.4
 ```
 
+## local dnsmasq
+- `yay dnsmasq`
+- ```
+# /etc/dnsmasq.conf
+server=1.1.1.1
+server=2606:4700:4700::1111
+listen-address=127.0.0.1
+cache-size=10000
+no-negcache
+no-resolvrt
+bind-interfaces
+```
+- ```
+# /etc/resolv.conf
+nameserver 127.0.0.1
+```
+- `sudo systemctl enable dnsmasq.service && sudo systemctl start dnsmasq.service`
+
 ## openresolv, resolvconf.conf
 - `man resolvconf 8` - 8 is needed! man resolvconf opens man for resolvectl!
 - openresolv package gives the resolvconf binary
