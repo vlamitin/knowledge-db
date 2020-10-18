@@ -445,3 +445,11 @@ out, err = proc.communicate(my_password + "\n")
 - `umask 0002` - all new files will be created with 664 permissions (666 - 002), all new dirs will be created with 775 permissions (777 - 002)
 - `find retail/ -type d -exec chown :shared {} \;` - change groups in all dirs inside retail to shared
 - `find retail/ -type f -exec chmod g+x {} \;` - change permissions in all files inside retail - add execute to group
+
+## thinkpad t14 no sound output problem
+- tl;dr - create file and reboot
+```
+# /etc/modprobe.d/disable-dmic.conf
+options snd_hda_intel dmic_detect=0
+```
+- links: [#1](https://bbs.archlinux.org/viewtopic.php?pid=1888464#p1888464) [#2] (https://bbs.archlinux.org/viewtopic.php?pid=1887925#p1887925) [#3](https://bbs.archlinux.org/viewtopic.php?pid=1888046#p1888046)
