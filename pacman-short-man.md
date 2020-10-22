@@ -8,6 +8,8 @@
 3. pacman -Ss <package or regexp to search> - search for package (example: pacman -Ss ^emacs - searches packages that start with emacs)
 4. pacman -Rns <package> - remove package with its dependencies (s) and dot-config files (n)
 5. pacman -Q - queries for installed packages
+5. pacman -Q package - show package along with version
+5. pacman -Qi pachage - show package and its info: dependencies, size, licence etc
 5. pacman -Qo /path/to/file - which package owns a file
 6. pacman -Qe - only installed by user (not dependencies or system packages) packages
 7. pacman -Qdt - orphaned (not used) dependencies - progs that you can uninstall
