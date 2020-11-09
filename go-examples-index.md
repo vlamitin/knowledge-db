@@ -41,6 +41,12 @@ func (mt *MyType) nameLen() int {
 var mtInstance MyContainerType = MyContainerType{nil}
 fmt.Printf("this shall not NPE!!, but give 0 instead - %v\n", mtInstance.mt.nameLen())
 ```
+- default slice in map
+```
+	mapp := make(map[string][]int)
+	arrr, ok := mapp["hello"]
+	fmt.Println(arrr, ok) // [] false
+```
 
 ## CLI
 - `go mod download` - like npm install
