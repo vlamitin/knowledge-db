@@ -17,7 +17,8 @@
 - `Shift + Ctrl + V` - clipboard history
 - `Ctrl + Alt + I` - auto-indent selected
 - `Alt + Enter` - quich actions (open code style options for selected code, check RegExp, reformat and so on)
-- `Ctrl+Shift+A` - menu of actions (type "main menu" to show main menu, if hide it in view -> appearance)
+- `Ctrl + Shift + A` - menu of actions (type "main menu" to show main menu, if hide it in view -> appearance)
+- `Ctrl + Alt + S` - settings
 
 ## JS
 - disable `__dirname/node_modules` library (in languages - js - libraries) caused unabling to go to definition of library function in new idea versions (2020.1). So, I enabled it
