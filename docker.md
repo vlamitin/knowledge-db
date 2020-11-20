@@ -12,6 +12,7 @@
 - `docker stop $(docker ps -a -q)` - stop all containers
 - `docker rm $(docker ps -a -q)` - rm all containers
 - `docker images` - list images
+- `docker system prune` - total cleanup (remove all containers, images, networks etc)
 - `docker rmi -f $( docker images | grep localtest | awk '{print $3}' )` - удалить все образы с тэгом `localtest`
 - `docker rmi -f $( docker images | grep -v localtest | awk '{print $3}' )` - удалить все образы, кроме тех, которые с тэгом `localtest`
 - `docker login artifactory.setmachine.ru:5000 v.mitin <passwd>` - логинимся
