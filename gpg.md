@@ -21,6 +21,11 @@
 - `gpg --armor --export your@email.com > test1.asc` - export your public key
 - `gpg --import test1.asc` - import it
 
+## Import / export public subkey
+- `gpg --keyid-format long --with-fingerprint --list-key user@gmail.com`
+- `gpg --export --armor --output public-subkey.asc 633DBBC0!` # for id of subkey with "!"
+- `gpg --import public-subkey.asc` - import it
+
 ## Import / export private key
 - `gpg --export-secret-keys <id of private key, smth like 505B17, but over 30 chars> > my-test1-private-key.gpg` - export your private key, see private key ID here `gpg -K` (you will be prompted to enter your gpg passwd)
 - `gpg -a --export-secret-subkeys [subkey id]! > subkey.gpg` - export subkey (! is required!!!)
@@ -75,6 +80,13 @@ and don't forget to send changed keys to keyserver!
 - expire
 - export public key (with encryption!)
 - import public key
+
+## signing git commits with sign subkey
+- `gpg --keyid-format long --with-fingerprint --list-key`
+- `git config --global user.signingkey 0BASDFASFASFA\!` - note "\! at the end"
+- `git commit -S -m "bla"`
+- `git log --show-signature -1`
+- add your public signing [S] subkey to github/gitlab to show that commits were veryfied [1](https://docs.gitlab.com/ee/user/project/repository/gpg_signed_commits/) [2](https://docs.github.com/en/free-pro-team@latest/github/authenticating-to-github/signing-commits) [3](https://confluence.atlassian.com/bitbucketserver/using-gpg-keys-913477014.html)
 
 ## miscellaneous
 - `nc -l -p 5555 > file.txt` - start listening and receive file
