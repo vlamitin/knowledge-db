@@ -4,7 +4,7 @@
 - `gpg --version` >= 2.2.2 is fine
 - `gpg --full-generate-key` - creates pub and priv keys. Rememeber passwd you entered while creating! Remember you user id (in will be constructed from name, email and comment (better to leave empty) and displayed to u). And set expiration date (it is sets for pub key) for not more than 3 months! It is easy to proexpired key (from edit menu)
 - `gpg -k` - list pub keys
-- `gpg -K` - list pub keys
+- `gpg -K` - list keys
 - `gpg -k --keyid-format=LONG` to show key ids
 - `tar -cf $HOME/gnupg-backup.tar -C $HOME .gnupg` - backuping everything
 
@@ -12,9 +12,9 @@
 - `gpg --gen-revoke --armor --output=revocation_certificate.asc your@email.com` - this will create it
 
 ## keyserver
-- `gpg --keyserver hkp://keyserver.ubuntu.com:80 --send-keys <key-id>` - send it to server (see key-id here `gpg -k --keyid-format=LONG`) 
+- `gpg --keyserver hkp://keyserver.ubuntu.com:80 --send-keys <key-id>` - send it to server (see key-id here `gpg -k --keyid-format=LONG`)
 - `gpg --search-keys "alexey mitin"` - у меня не взлетело
-- `gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys <pub key-id>` - get from server 
+- `gpg --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys <pub key-id>` - get from server
 
 
 ## Import / export public key
@@ -32,7 +32,7 @@
 * edit-key -> trust -> 5 needed after fresh import!
 - `gpg --import my-test1-private-key.gpg` - import it (you will be prompted to enter your gpg passwd)
 
-## encrypting / decrypting 
+## encrypting / decrypting
 - `gpg -r your@email.com --armor --encrypt test1.txt` - this will create test1.txt.asc
 - `gpg -R your@email.com --armor --encrypt test1.txt` - this will not show user id in encrypted text
 - `gpg -r 0x<key or subkey id>! -a -e test1.txt` - encrypt with key specified
