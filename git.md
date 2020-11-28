@@ -67,6 +67,11 @@ git remote -v
 ### force push
 - `git push --force origin feature_branch` - ! rewrites origin history!
 
+## rebase with sign
+- to sign one commit (after squash) - `git commit -S --amend --no-edit`
+- to sign multiple commits - `git rebase -i branch` -> mark all commits "e" -> for every commit `git commit -S --amend --no-edit` and `git rebase --continue`
+- `git log --show-signature -2`
+
 ## rebase on top of master
 - let's say you made a PR to master with only commit (all commits are squashed in one)
 - master was updated (another PR was merged)
