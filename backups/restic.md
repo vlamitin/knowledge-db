@@ -24,7 +24,8 @@ $ export RESTIC_PASSWORD="blabla"
 - `/home/restic/bin/restic init`
 
 #### Init local (or sshfs) repo
-- `/home/restic/bin/restic init /mnt/my_backup`
+- `su restic`
+- `/home/restic/bin/restic init -r /home/restic/mnt/my_backup` !WARN add /home/restic/mnt to restic-excludes.txt!
 
 ### Backing up
 #### To aws
@@ -38,4 +39,4 @@ $ export RESTIC_PASSWORD="blabla"
 - `/home/restic/bin/restic backup / --exclude-file=restic-excludes.txt`
 
 #### To local (or sshfs) dir
-- `/home/restic/bin/restic backup -r /mnt/my_backup / --exclude-file=restic-excludes.txt`
+- `/home/restic/bin/restic backup -r /home/restic/mnt/my_backup / --exclude-file=restic-excludes.txt`  !WARN add /home/restic/mnt to restic-excludes.txt!
