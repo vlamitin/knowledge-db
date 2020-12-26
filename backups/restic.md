@@ -4,6 +4,7 @@
 [aws example](https://restic.readthedocs.io/en/stable/080_examples.html#setting-up-restic-with-amazon-s3)
 
 ## cli
+### Bootstrapping
 - `useradd -m restic`
 - `passwd restic`
 - `mkdir /home/restic/bin`
@@ -12,6 +13,7 @@
 - `chmod 750 /home/restic/bin/restic`
 - `setcap cap_dac_read_search=+ep /home/restic/bin/restic`
 
+#### Init aws restic repo
 - `su restic`
 ```
 $ export RESTIC_REPOSITORY="s3:s3.amazonaws.com/restic-demo"
@@ -20,5 +22,20 @@ $ export AWS_SECRET_ACCESS_KEY="blabla"
 $ export RESTIC_PASSWORD="blabla"
 ```
 - `/home/restic/bin/restic init`
+
+#### Init local (or sshfs) repo
+- `/home/restic/bin/restic init /mnt/my_backup`
+
+### Backing up
+#### To aws
+- `su restic`
+```
+$ export RESTIC_REPOSITORY="s3:s3.amazonaws.com/restic-demo"
+$ export AWS_ACCESS_KEY_ID="blabla"
+$ export AWS_SECRET_ACCESS_KEY="blabla"
+$ export RESTIC_PASSWORD="blabla"
+```
 - `/home/restic/bin/restic backup / --exclude-file=restic-excludes.txt`
--
+
+#### To local (or sshfs) dir
+- `/home/restic/bin/restic backup -r /mnt/my_backup / --exclude-file=restic-excludes.txt`
