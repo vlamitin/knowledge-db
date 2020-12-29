@@ -15,6 +15,11 @@
 5. придумать как правильно линкать установленные локально проги (idea, tg) - через ln-s, или через path, смотреть чтобы в dmenu прокидывалось
    pridumal - symlink v .scripts (ne zabivaem polnii put)
 6. synclient - add tap events, add them to i3 config exec-always
+```
+install xf86-input-synaptics
+cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/
+toucheventson
+```
 
 8. edit apps font size in ~/.gtk ... 2.0 or 3.0 - did't understand yet how they're work
 !!! some apps use fonts not from gtk configs, but from ~/.config/fontconfig
