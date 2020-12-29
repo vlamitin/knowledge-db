@@ -368,14 +368,15 @@ nameserver 8.8.4.4
 
 ## local dnsmasq
 - `yay dnsmasq`
-- ```
+- in /etc/dnsmasq.conf
+```
 # /etc/dnsmasq.conf
 server=1.1.1.1
 server=2606:4700:4700::1111
 listen-address=127.0.0.1
 cache-size=10000
 no-negcache
-no-resolvrt
+no-resolv
 bind-interfaces
 ```
 - ```
