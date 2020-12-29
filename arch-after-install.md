@@ -19,6 +19,7 @@
 install xf86-input-synaptics
 cp /usr/share/X11/xorg.conf.d/70-synaptics.conf /etc/X11/xorg.conf.d/
 toucheventson
+modprobe -v psmouse (if synclient fails with "no driver found")
 ```
 
 8. edit apps font size in ~/.gtk ... 2.0 or 3.0 - did't understand yet how they're work
