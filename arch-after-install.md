@@ -379,7 +379,8 @@ no-negcache
 no-resolv
 bind-interfaces
 ```
-- ```
+- /etc/resolv.conf
+```
 # /etc/resolv.conf
 nameserver 127.0.0.1
 ```
@@ -467,3 +468,9 @@ options snd_hda_intel dmic_detect=0
 ## cp
 - `cp -r` - does not copy hidden files and dirs!
 - `cp -r source/{.,}* destination/` - include hidden files and dirs
+
+## cryptsetup, open encrypted disk when booted from other disk
+- `sudo cryptsetup luksOpen /dev/sda4 crypthome1`
+- `sudo mount /dev/mapper/crypthome1 /mnt`
+- `sudo umount /mnt`
+- `sudo cryptsetup close crypthome1`
