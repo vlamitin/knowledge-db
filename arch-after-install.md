@@ -454,6 +454,9 @@ options snd_hda_intel dmic_detect=0
 ```
 - links: [#1](https://bbs.archlinux.org/viewtopic.php?pid=1888464#p1888464) [#2] (https://bbs.archlinux.org/viewtopic.php?pid=1887925#p1887925) [#3](https://bbs.archlinux.org/viewtopic.php?pid=1888046#p1888046)
 
-# anki server
+## anki server
 - anki connect https://ankiweb.net/shared/info/2055492159
 
+## cp
+- `cp -r` - does not copy hidden files and dirs!
+- `cp -r source/{.,}* destination/` - include hidden files and dirs
