@@ -42,3 +42,6 @@ echo "IgnorePkg = ttf-inconsolata" >> /etc/pacman.conf
 ## Pacman cache
 - https://wiki.archlinux.org/index.php/pacman#Cleaning_the_package_cache
 - td dr: install pacman-contrib  and run `paccache -r`
+
+## MOre
+- [archwiki_Tips](https://wiki.archlinux.org/index.php/Pacman/Tips_and_tricks)
