@@ -468,6 +468,7 @@ options snd_hda_intel dmic_detect=0
 ## cp
 - `cp -r` - does not copy hidden files and dirs!
 - `cp -r source/{.,}* destination/` - include hidden files and dirs
+- `cp -rfT source destination` - same (include hidden files and dirs)
 
 ## cryptsetup, open encrypted disk when booted from other disk
 - `sudo cryptsetup luksOpen /dev/sda4 crypthome1`
