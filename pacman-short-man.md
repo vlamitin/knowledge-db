@@ -37,7 +37,7 @@ sudo pacman -U https://archive.archlinux.org/packages/t/ttf-inconsolata/ttf-inco
 sudo pacman -U /var/cache/pacman/pkg/firefox-79.....pkg.tar.zst
 
 2. Tell pacman to ignore auto-upgrading ttf-inconsolata in the future.
-echo "IgnorePkg = ttf-inconsolata" >> /etc/pacman.conf
+add "IgnorePkg = ttf-inconsolata" /etc/pacman.conf (TO 'options' section!)
 
 ## Pacman cache
 - https://wiki.archlinux.org/index.php/pacman#Cleaning_the_package_cache
