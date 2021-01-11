@@ -475,3 +475,7 @@ options snd_hda_intel dmic_detect=0
 - `sudo mount /dev/mapper/crypthome1 /mnt`
 - `sudo umount /mnt`
 - `sudo cryptsetup close crypthome1`
+
+## diff
+- `diff file1 file2`
+- `diff -q dir1 dir2`
