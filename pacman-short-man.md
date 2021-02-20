@@ -1,4 +1,5 @@
 # Pacman short man
+## commands
 (all should be run as root)
 1. pacman -S <package>
 2. pacman -Suy (like apt update && apt upgrade) - download and update all packages
@@ -17,13 +18,17 @@
 8. pacman -Sc - clear old packages from cache (locally installed old versions of packages) (cleans /var/cache/pacman/pkg)
 8.1 it is better to use yay -Sc - it also cleans aur packages in ~/.cache/yay
 
+## config
 /etc/pacman.conf
 you probably want to decomment these:
 Color - coloredd formatted output
 CheckSpace - check disk space before install a package
 
-/etc/pacman.d/mirrorlist
-you probably want to change the order of urls (more avalable and those with less ping to the top)
+## mirrorlist
+- /etc/pacman.d/mirrorlist - you probably want to change the order of urls (more avalable and those with less ping to the top)
+- https://wiki.archlinux.org/index.php/reflector - tool to generate actual mirrorlist
+- https://archlinux.org/mirrorlist/ - another one
+
 
 ## Errors when upgrading
 1. error: failed to commit transaction (conflicting files)
