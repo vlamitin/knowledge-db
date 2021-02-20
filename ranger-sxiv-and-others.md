@@ -33,6 +33,6 @@
 
 ## Sxiv (image viewer)
 - `sxiv .` - open all files from dir
-- `ctrl + x` - switch to command mode (execute one command after, e.g `r` to rotate)
+- `ctrl + x` - switch to command mode (execute one command after, e.g `r` to rotate) (needs `convert`, which is `imagemagick` to be installed)
 - [custom commands here](https://github.com/vlamitin/voidrice/blob/master/.config/sxiv/exec/key-handler)
 - [default commands in man](http://muennich.github.io/sxiv/sxiv.1.html#KEYBOARD%20COMMANDS)
