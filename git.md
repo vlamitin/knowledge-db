@@ -90,3 +90,27 @@ git remote -v
 
 ## mics
 - you can use token as password when git fetch
+
+## multiple ssh keys
+- https://www.freecodecamp.org/news/how-to-manage-multiple-ssh-keys/
+- tldr - add additional keys like so: ~/.ssh/id_rsa_custom1, id_rsa_custom1.pub; create ~/.ssh/config and add to it:
+```
+Host github.com # for git
+  HostName github.com
+  User mygithublogin
+  IdentityFile ~/.ssh/_id_rsa
+  IdentitiesOnly yes
+ 
+Host bitbucket-corporate # for git
+  HostName bitbucket.org
+  User mybitbucketlogin
+  IdentityFile ~/.ssh/id_rsa_corp
+  IdentitiesOnly yes
+
+Host myserver # for ssh into some server like so `ssh steve.com (instead of ssh steve@steve.com -i ~/.ssh/id_rsa_personal -p 1111)`
+  HostName steve.com
+  User steve
+  Port 1111
+  IdentityFile ~/.ssh/id_rsa_personal
+  IdentitiesOnly yes
+```
