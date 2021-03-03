@@ -479,3 +479,11 @@ options snd_hda_intel dmic_detect=0
 ## diff
 - `diff file1 file2`
 - `diff -q dir1 dir2`
+
+## check which program is using port
+- cat /etc/services | grep 3000
+- netstat -tulpn (net-tools package needs to be installed)
+- sudo lsof -i -P -n | grep LISTEN 
+- sudo netstat -tulpn | grep LISTEN
+- sudo ss -tulpn | grep LISTEN
+- 
