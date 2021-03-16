@@ -12,6 +12,9 @@ export GOROOT=$HOME/sdk/go1.15.2
 ```
 - add new versions like so: `go get golang.org/dl/go1.14.3 && go1.14.3 download` - https://golang.org/doc/manage-install#installing-multiple
 
+## Profiling
+- https://www.youtube.com/watch?v=YCb2B04S7V4 like here (net/http/pprof !)
+
 ## Best resources
 - [https://www.programming-idioms.org/cheatsheet/Go](https://www.programming-idioms.org/cheatsheet/Go) - common code pieces on one page
 - [https://learnxinyminutes.com/docs/go/](https://learnxinyminutes.com/docs/go/) - the very basics
