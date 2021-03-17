@@ -6,6 +6,9 @@
 ## Cherry-pick
 - `git cherry-pick <commit>` - moves commit to current branch
 
+## Search some code in history
+- `git log -S "MyMethod" -- path/to/file/or/dir` - will show commits where that code was updated/deleted
+
 ## Remotes
 1. In github you can't fork from any commit - only from current commit of master
 However, you can easily rollback to any commit in already forked repo:
