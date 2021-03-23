@@ -35,3 +35,24 @@ CMD python /app/app.py
 docker-compose ps -q psql | xargs -I {} docker cp ./init_dev_data.sql {}:/tmp
 docker-compose exec psql psql -U postgres -d customers -f /tmp/init_dev_data.sql
 
+## Changing user in container from root
+- https://vsupalov.com/docker-shared-permissions/
+```
+FROM ubuntu
+
+ARG USER_ID
+ARG GROUP_ID
+
+RUN addgroup --gid $GROUP_ID user
+RUN adduser --disabled-password --gecos '' --uid $USER_ID --gid $GROUP_ID user
+USER user
+```
+```
+$ docker build -t myimage \
+  --build-arg USER_ID=$(id -u) \
+  --build-arg GROUP_ID=$(id -g) .
+$ docker run -it --rm \
+  --mount "type=bind,src=$(pwd)/shared,dst=/opt/shared" \
+  --workdir /opt/shared \
+  myimage bash
+```
