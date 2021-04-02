@@ -56,3 +56,5 @@ $ docker run -it --rm \
   --workdir /opt/shared \
   myimage bash
 ```
+## misc
+- `ip a` - see you docker route ip (172.17.0.1), and use it instead of localhost to ping services, run on host
