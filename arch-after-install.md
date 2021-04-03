@@ -333,6 +333,7 @@ EOF
 - `nmcli wifi rescan`
 - `nmcli radio wifi off` - turns wifi off
 - `nmcli --show-secrets connection show "<SSID>"` - show connection info with plain password (802-11-wireless-security.psk:)
+- `nmcli dev show wlp0s2 | grep IP4.DNS` - see dns addresses, assigned via dhcp
 - see man nmcli, examples section for more
 
 ## NetworkManager dns
