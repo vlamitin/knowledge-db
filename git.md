@@ -47,6 +47,9 @@ git remote -v
 - `git chechout -b <new branch>`
 - `git cherry-pick -n <commit>` - по одному черри-пикать коммиты (начиная с самого раннего). -n - это значит не коммитить. Можно будет закоммитить "как надо"
 
+### unstage
+- `git reset HEAD -- path/to/file` - will remove file from staging (no files deleted)
+
 ## .gitignore
 - set `*` to ignore all, then explicitly add files with `!.gitngnore` and so on
 - hint! to add dotfolders you need to type `.i3` in root .gitignore, and add .i3/.gitignore with `!*` content
