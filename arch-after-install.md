@@ -104,6 +104,7 @@ nameserver 8.8.8.8
 - `passwd username`
 - ` usermod -a -G sambashare username`
 - ` usermod -a -G sudo username`
+- (hack - `su - $USER` - to use group withoud relogging)
 
 
 ## nomachine
