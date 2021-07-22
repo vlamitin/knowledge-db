@@ -57,7 +57,8 @@ fmt.Printf("this shall not NPE!!, but give 0 instead - %v\n", mtInstance.mt.name
 - `go mod vendor` - installs deps of packege go project-dir/vendor (you'll need to gitignore it)
 - `go get -t .` - to add all requirements and sums of a current project (if 'missing go.sum entry for module providing package' error)
 - `go get github.com/go-swagger/go-swagger` - install package
-- `go get -u github.com/go-swagger/go-swagger` - upgrade package
+- `go get -u github.com/go-swagger/go-swagger` - upgrade package (!! will upgrade other packages)
+- `go get github.com/go-swagger/go-swagger@master go get github.com/go-swagger/go-swagger@v1.2.6` - specific version
 - `go run cmd/app/main.go` - compile and run
 - `go build cmd/app/main.go -o main` - compile and create `main` binary with GOOS and GOARCH for current machine; -o is for setting output path with name (main would be default for main.go)
 - `GOOS=windows GOARCH=amd64 go build -o main.exe cmd/app/main.go` - building binary for windows [GOOS and GOARCH options](https://www.digitalocean.com/community/tutorials/how-to-build-go-executables-for-multiple-platforms-on-ubuntu-16-04#step-4-%E2%80%94-building-executables-for-different-architectures) [the newer article on cross-compiling](https://www.digitalocean.com/community/tutorials/building-go-applications-for-different-operating-systems-and-architectures)
