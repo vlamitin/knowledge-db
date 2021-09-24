@@ -454,6 +454,7 @@ out, err = proc.communicate(my_password + "\n")
 - `chmod g+s .` - add sticky bit for group (all new files and dirs in this dir will be created with group of . instead of with group of user)
 - `umask 0002` - all new files will be created with 664 permissions (666 - 002), all new dirs will be created with 775 permissions (777 - 002)
 - `find retail/ -type d -exec chown :shared {} \;` - change groups in all dirs inside retail to shared
+- `sudo chown -R user:wheel .` - recursive chown inside current dir
 - `find retail/ -type f -exec chmod g+x {} \;` - change permissions in all files inside retail - add execute to group
 
 ## thinkpad t14 no sound output problem
