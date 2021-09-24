@@ -489,4 +489,6 @@ options snd_hda_intel dmic_detect=0
 - sudo lsof -i -P -n | grep LISTEN 
 - sudo netstat -tulpn | grep LISTEN
 - sudo ss -tulpn | grep LISTEN
-- 
+
+## gzip
+- `gzip -dk file.txt.gz` - ungzips file to file.txt
