@@ -492,3 +492,6 @@ options snd_hda_intel dmic_detect=0
 
 ## gzip
 - `gzip -dk file.txt.gz` - ungzips file to file.txt
+
+## sort
+- `echo -n "file_bla_1213\nfile_bla_231" | sort -t _ -k3 -n -r` - `-t _` means divider, `-k3` means 3rd column in divided, `-n` means to treat strings as numbers, `-r` means reverse
