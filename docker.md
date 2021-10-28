@@ -2,6 +2,7 @@
 
 ## CLI
 - `docker exec <container> <command>` - run command in running container
+- `docker exec -it <container> /bin/bash` - run bash interactively
 - `docker build -t <contailer_name>:<tag> <path/to/Dockerfile>` - build container
 - `docker run [-d -p <host_machine_port>:<container_port> -v <path/to/host/volume>:<path/to/container/volume> --env MYVAR1=foo --env MYVAR1=bar] <container_name_or_id> [<command_to_run>]` - run options
 - `docker exec -it <container_name> /bin/bash` - войти в консольк запущенного контейнера
