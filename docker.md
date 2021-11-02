@@ -60,4 +60,13 @@ $ docker run -it --rm \
 ```
 ## misc
 - `ip a` - see you docker route ip (172.17.0.1), and use it instead of localhost to ping services, run on host
+
+## remote
 - `DOCKER_HOST=“ssh://user@remotehost” docker-compose up -d` - running docker in remote machine as your local
+- `docker context create remote ‐‐docker “host=ssh://user@remotemachine”` - creates context
+- `docker context ls`
+- `docker context use remote`
+- `docker context use default`
+- `docker --context remote ps`
+- `docker-compose --context=remote up`
+
