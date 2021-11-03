@@ -6,7 +6,8 @@
 - `docker build -t <contailer_name>:<tag> <path/to/Dockerfile>` - build container
 - `docker run [-d -p <host_machine_port>:<container_port> -v <path/to/host/volume>:<path/to/container/volume> --env MYVAR1=foo --env MYVAR1=bar] <container_name_or_id> [<command_to_run>]` - run options
 - `docker exec -it <container_name> /bin/bash` - войти в консольк запущенного контейнера
-- `docker run -i -t ubuntu /bin/bash` - запускает контейтер в интерактивном режиме (приглашение cmd, запускай что хочешь): `-i` оставляет STDIN открытым, `-t` назначает псевдо-tty для интерактивной связи с контейнером, `/bin/bash` - выполняемая в контейнере команда
+- `docker run -it ubuntu /bin/bash` - запускает контейтер в интерактивном режиме (приглашение cmd, запускай что хочешь): `-i` оставляет STDIN открытым, `-t` назначает псевдо-tty для интерактивной связи с контейнером, `/bin/bash` - выполняемая в контейнере команда
+- `docker-compose run <container> bash` - same, but with compose
 - `docker port <container>` - port
 - `docker ps` - list running containers
 - `docker ps -a` - list all containers (and stopped too)
