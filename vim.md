@@ -38,6 +38,7 @@
 - `:s/$/ new text/`  Append " new text" to the end of the line.
 - `:s/green/bright &/g` - Replace each "green" with "bright green" in the line.
 - [more on replacing in visual mode](https://vim.fandom.com/wiki/Search_and_replace_in_a_visual_selection)
+- `:set paste` to turn off adding spaces when pasting
  
 - maps replace command to `S`
 ```
