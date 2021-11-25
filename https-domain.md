@@ -29,6 +29,7 @@ sudo certbot certonly --standalone -d mydomain.com -d www.mydomain.com
 
 ## updating expired keys
 - `sudo certbot renew` - automatically renews expired certs
+- `crontab -e` -> `43 6 * * * certbot renew --post-hook "systemctl reload nginx"`
 - `certbot certificates` - show info about certs (including expiration date)
 - TODO see /etc/letsencrypt/live/mydomain.com/README
 
