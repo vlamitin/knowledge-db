@@ -495,3 +495,7 @@ options snd_hda_intel dmic_detect=0
 
 ## sort
 - `echo -n "file_bla_1213\nfile_bla_231" | sort -t _ -k3 -n -r` - `-t _` means divider, `-k3` means 3rd column in divided, `-n` means to treat strings as numbers, `-r` means reverse
+
+## keyring
+- https://wiki.archlinux.org/title/GNOME/Keyring#Installation
+- install seahorse - gui app to manage keyring
