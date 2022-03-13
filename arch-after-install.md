@@ -499,3 +499,4 @@ options snd_hda_intel dmic_detect=0
 ## keyring
 - https://wiki.archlinux.org/title/GNOME/Keyring#Installation
 - install seahorse - gui app to manage keyring
+- they're placed in ~/.local/share/keyrings
