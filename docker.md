@@ -19,7 +19,7 @@
 - `docker rmi -f $( docker images | grep -v localtest | awk '{print $3}' )` - удалить все образы, кроме тех, которые с тэгом `localtest`
 - `docker login artifactory.setmachine.ru:5000 v.mitin <passwd>` - логинимся
 - `docker inspect <container> | grep compose` - check location of docker-compose from which it was started
-- `docker stat` - container's resources usage
+- `docker stats` - container's resources usage
 
 ## Dockerfile
 ```
