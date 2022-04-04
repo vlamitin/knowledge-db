@@ -4,6 +4,9 @@
 - [psql commands](https://www.postgresqltutorial.com/psql-commands/);
 - когда в psql, то запрос вот так делать: `SELECT * FROM some_table;`
 
+## show tables
+- `\dt`
+
 ### Инфа о полях таблицы
 ```
 select column_name, data_type, character_maximum_length
