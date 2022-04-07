@@ -16,4 +16,4 @@
 - открываем у себя <ip-железки>:9223
 ```
 ### Ssh port forwarding
-- if you have ssh to remote server, you can port forward any internal port of that remote server to your localhost: `ssh -L 8881:myserver.com:1221 user@myserver.com` - forwards internal 1221 port of server.com to localhost:8881 of your machine
+- if you have ssh to remote server, you can port forward any internal port of that remote server to your localhost: `ssh -L 8881:myserver.com:1221 user@myserver.com -N` - forwards internal 1221 port of server.com to localhost:8881 of your machine (-N says not to login to machine)
