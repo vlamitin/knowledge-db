@@ -2,7 +2,7 @@
 ## commands
 (all should be run as root)
 1. pacman -S <package>
-2. pacman -Suy (like apt update && apt upgrade) - download and update all packages
+2. pacman -Suy (like apt update && apt upgrade) - download and update all packages (!! better to update keyring first! pacman -Syy; pacman -S archlinux-keyring https://bbs.archlinux.org/viewtopic.php?id=274092)
 2.1. `yay -Suy --devel` - updates -git packages too
 2.2 `pacman -S package` - update package. Still, this will not work, if package was installed fron AUR.
 2.3 `yay -S package` - update package. Properly works for all (AUR too) packages.
