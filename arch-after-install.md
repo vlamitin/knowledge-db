@@ -182,7 +182,7 @@ $ setxkbmap -option
 
 ## tar
 - `tar czvf tarball.tar.gz files` - create
-- `tar tzf tarball.tar.gz` - echo files
+- `tar -ztvf tarball.tar.gz` - list files inside
 - `tar xf tarball.tar.gz` - extract
 
 ## entr
