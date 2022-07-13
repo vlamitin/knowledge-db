@@ -500,3 +500,12 @@ options snd_hda_intel dmic_detect=0
 - https://wiki.archlinux.org/title/GNOME/Keyring#Installation
 - install seahorse - gui app to manage keyring
 - they're placed in ~/.local/share/keyrings
+
+## bluetooth
+- `modinfo btusb` (if module is loaded it shows something, if not - run `modprobe btusb`)
+- yay bluez
+- yay bluez-utils
+- yay blueman
+- start and enable bluetooth.service
+- run blueman-manager
+
