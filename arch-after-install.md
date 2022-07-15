@@ -512,10 +512,10 @@ options snd_hda_intel dmic_detect=0
 # wifi connectivity drops
 - sudo pacman -S wireless_tools
 - iwconfig wlp3s0 (power management is on? switch to off)
-- sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.con
+- sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.conf
 ```
 [connection]
-wifi.powersave = 3
+wifi.powersave = 2
 
 ```
 - sudo systemctl restart NetworkManager
