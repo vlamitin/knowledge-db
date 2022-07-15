@@ -509,3 +509,13 @@ options snd_hda_intel dmic_detect=0
 - start and enable bluetooth.service
 - run blueman-manager
 
+# wifi connectivity drops
+- sudo pacman -S wireless_tools
+- iwconfig wlp3s0 (power management is on? switch to off)
+- sudo vim /etc/NetworkManager/conf.d/default-wifi-powersave-on.con
+```
+[connection]
+wifi.powersave = 3
+
+```
+- sudo systemctl restart NetworkManager
