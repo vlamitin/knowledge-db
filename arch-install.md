@@ -63,7 +63,7 @@
 - `mkswap /dev/sdX2`
 - `swapon /dev/sdX2`
 ### Устанавливаем arch
-- `pacstrap /mnt base linux linux-firmware base-devel vim` - установит нужные пакеты из packages base, base-devel, а также vim
+- `pacstrap /mnt base linux linux-lts linux-firmware base-devel vim` - установит нужные пакеты из packages base, base-devel, а также vim
 ### Генерим fstab на основании /mnt
 - `genfstab -U /mnt >> /mnt/etc/fstab`
 ### чрут
@@ -87,6 +87,15 @@ initrd  /initramfs-linux.img
 options rw cryptdevice=UUID={UUID`*`}:cryptroot root=/dev/mapper/cryptroot
 # * - сюда вставляем UUID, полученный через :r!blkid нашего /dev/sdX3 (который root) см https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_the_boot_loader
 ```
+- потом добавляем ещё одно для lts ядра /boot/loader/entries/arch-lts.conf
+```
+title   Arch-lts
+linux   /vmlinuz-linux-lts
+initrd  /initramfs-linux-lts.img
+options rw cryptdevice=UUID={UUID`*`}:cryptroot root=/dev/mapper/cryptroot
+# * - сюда вставляем UUID, полученный через :r!blkid нашего /dev/sdX3 (который root) см https://wiki.archlinux.org/index.php/Dm-crypt/Encrypting_an_entire_system#Configuring_the_boot_loader
+```
+
 - `mkinitcpio -p linux` - пересобираем ядро
 
 
