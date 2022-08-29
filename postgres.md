@@ -30,4 +30,5 @@ SELECT reltuples as approximate_row_count FROM pg_class WHERE relname = 'table_n
 
 ### misc
 - `SELECT version()`
-- https://mydbanotebook.org/psql_tips_all.html
+- [https://mydbanotebook.org/psql_tips_all.html](https://mydbanotebook.org/psql_tips_all.html)
+- [https://uproger.com/postgresql-prodvinutye-komandy](https://uproger.com/postgresql-prodvinutye-komandy)
