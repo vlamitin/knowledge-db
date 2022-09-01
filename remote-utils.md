@@ -172,9 +172,12 @@ or even
 - `echo >/dev/tcp/{host}/{port}`
 - `echo >/dev/udp/{host}/{port}`
 
-# simple proxy via other machine, to which you have ssh
+# simple socks5 proxy via other machine, to which you have ssh
 - `ssh -N -D 9090 [USER]@[SERVER_IP]` - sets up tunnel. Now you can use localhost:9090 as local tunnel entry
 - in firefox  network settings -> connection settings -> manual socks5 proxy -> localhost:9090
+
+# tunnel remote port to local port
+- `ssh -L 0.0.0.0:9000:server_ip:9222 [USER]@[SERVER_IP]` - sets up tunnel. Now you can use localhost:9090 to access server_ip:9222
 
 # proxy local port to remote port
 - (on remote machine) `ssh -L 0.0.0.0:8090:172.29.16.208:8090 localhost -N` - now when go on <remote-machine-ip>:8090 you'll be proxied to 172.29.16.208:8090
