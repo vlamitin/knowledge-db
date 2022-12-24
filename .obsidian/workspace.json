@@ -1,0 +1,144 @@
+{
+  "main": {
+    "id": "4e43db182def0e61",
+    "type": "split",
+    "children": [
+      {
+        "id": "8bb0b8e7bfcce730",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "b35bfb52dbc8f7a3",
+            "type": "leaf",
+            "state": {
+              "type": "empty",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "2c29291e0dde0ac5",
+    "type": "split",
+    "children": [
+      {
+        "id": "655c30b12f8d4d67",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "38ac7ebd6f2bf4bd",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "f849172bc0101a6c",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "d1525cb18b3ee325",
+            "type": "leaf",
+            "state": {
+              "type": "starred",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "cc6ceaaef2522e47",
+    "type": "split",
+    "children": [
+      {
+        "id": "64b9ac3f35de985c",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "2a6f322b80d341a8",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "dbeb736fe0a32cd8",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "c235a94ae14414b2",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "9553412835b56859",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300,
+    "collapsed": true
+  },
+  "active": "b35bfb52dbc8f7a3",
+  "lastOpenFiles": [
+    "2022-12-24.md",
+    "android.md",
+    "backups/restic.md",
+    "resources/screenshots/Screenshot from 2019-06-03 19-31-57.png",
+    "resources/screenshots/Screenshot from 2019-06-03 19-31-49.png",
+    "README.md",
+    "pacman-short-man.md",
+    "virtualbox-hints.md",
+    "vim.md",
+    "tmux.md"
+  ]
+}
