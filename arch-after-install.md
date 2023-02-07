@@ -520,3 +520,7 @@ wifi.powersave = 2
 ```
 - sudo systemctl restart NetworkManager
 - https://bugzilla.kernel.org/show_bug.cgi?id=203709
+-
+
+# sync time automatically
+- `sudo timedatectl set-ntp true`
