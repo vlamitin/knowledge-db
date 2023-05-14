@@ -13,6 +13,8 @@
 5. pacman -Q --info package - show package full info (with packages, that requires this package)
 5. pacman -Qi pachage - show package and its info: dependencies, size, licence etc
 5. pacman -Qo /path/to/file - which package owns a file
+5. pacman -Si package - which packages this package depends on
+5. pacman -Sii package - which packages depend on this package
 6. pacman -Qe - only installed by user (not dependencies or system packages) packages
 7. pacman -Qdt - orphaned (not used) dependencies - progs that you can uninstall
 8. pacman -Sc - clear old packages from cache (locally installed old versions of packages) (cleans /var/cache/pacman/pkg)
