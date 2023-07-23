@@ -11,8 +11,9 @@
 5. pacman -Q - queries for installed packages
 5. pacman -Q package - show package along with version
 5. pacman -Q --info package - show package full info (with packages, that requires this package)
-5. pacman -Qi pachage - show package and its info: dependencies, size, licence etc
+5. pacman -Qi pachage - same
 5. pacman -Qo /path/to/file - which package owns a file
+6. pacman -Ql package - which files owns a package
 5. pacman -Si package - which packages this package depends on
 5. pacman -Sii package - which packages depend on this package
 6. pacman -Qe - only installed by user (not dependencies or system packages) packages
