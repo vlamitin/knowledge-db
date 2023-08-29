@@ -524,3 +524,6 @@ wifi.powersave = 2
 
 # sync time automatically
 - `sudo timedatectl set-ntp true`
+
+# combine pdf
+- yay pdfarranger
