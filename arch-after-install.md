@@ -527,3 +527,7 @@ wifi.powersave = 2
 
 # combine pdf
 - yay pdfarranger
+
+# zip
+- pacman -S extra/zip
+- zip -r folder.zip ./folder
