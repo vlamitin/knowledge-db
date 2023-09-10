@@ -531,3 +531,7 @@ wifi.powersave = 2
 # zip
 - pacman -S extra/zip
 - zip -r folder.zip ./folder
+
+# video cropping
+- pacman -S extra/avidemux-qt
+- video -> filters -> crop https://linuxhint.com/crop_videos_linux
