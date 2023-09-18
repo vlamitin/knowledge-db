@@ -337,6 +337,28 @@ EOF
 - `nmcli dev show wlp0s2 | grep IP4.DNS` - see dns addresses, assigned via dhcp
 - see man nmcli, examples section for more
 
+## WPA2 enterprise nets (like WeWork) wifi connection
+When using `nmcli device wifi connect 'WeWorkWiFi' password '...'`, you'll get something like:
+```
+Error: Failed to add/activate new connection: Failed to determine AP security information
+```
+To actually use it, you need to create a connection first and configure it:
+
+```
+nmcli connection add type wifi ifname <INTERFACE> con-name WeWorkWiFi ssid WeWorkWiFi
+nmcli connection edit WeWorkWiFi
+nmcli> set 802-1x.eap peap
+nmcli> set 802-1x.phase2-auth mschapv2
+nmcli> set 802-1x.identity <USERNAME>
+nmcli> set 802-1x.password <PASSWORD>
+nmcli> set wifi-sec.key-mgmt wpa-eap
+nmcli> save
+nmcli> activate
+Ctrl + D
+```
+
+Then it will be connected.
+
 ## NetworkManager dns
 ## Settings
 - `vim /etc/NetworkManager/system-connections/<connection>.nmconnection` - тут можно посмотреть пароли к wifi, например
