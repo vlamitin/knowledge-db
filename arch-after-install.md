@@ -557,3 +557,15 @@ wifi.powersave = 2
 # video cropping
 - pacman -S extra/avidemux-qt
 - video -> filters -> crop https://linuxhint.com/crop_videos_linux
+
+# ch, jp, korean, etc fonts
+- install these packages
+```
+adobe-source-han-sans-cn-fonts
+adobe-source-han-sans-jp-fonts
+adobe-source-han-sans-kr-fonts
+adobe-source-han-serif-cn-fonts
+adobe-source-han-serif-jp-fonts
+adobe-source-han-serif-kr-fonts
+```
+
