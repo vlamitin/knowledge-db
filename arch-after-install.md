@@ -567,5 +567,8 @@ adobe-source-han-sans-kr-fonts
 adobe-source-han-serif-cn-fonts
 adobe-source-han-serif-jp-fonts
 adobe-source-han-serif-kr-fonts
+aur/adobe-source-han-mono-cn-fonts
+aur/adobe-source-han-mono-jp-fonts
+aur/adobe-source-han-mono-kr-fonts
 ```
 
