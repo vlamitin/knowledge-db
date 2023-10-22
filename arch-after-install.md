@@ -572,3 +572,6 @@ aur/adobe-source-han-mono-jp-fonts
 aur/adobe-source-han-mono-kr-fonts
 ```
 
+# create bootable windows usb
+- https://kb.adamsdesk.com/operating_system/create_a_bootable_windows_10_usb_using_linux
+
