@@ -17,4 +17,3 @@
 ## scrcpy
 - `scrcpy` - starts (you may need to press "ok" on android device)
 - [also works wirelessly](https://www.genymotion.com/blog/open-source-project-scrcpy-now-works-wirelessly/)
-- 
